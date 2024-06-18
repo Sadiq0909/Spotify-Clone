@@ -37,7 +37,7 @@ body {
     color:gray;
 }
 .left {
-    width: 25vw;
+    width: 23vw;
     padding:5px;
 }
 /* .home{
@@ -52,4 +52,27 @@ body {
 }
 .header > *{
     padding: 20px;
+}
+.spotify_playlist{
+    padding: 15px;
+}
+.card_container{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+.card{
+    padding: 10px;
+    background-color: #242424;
+    width: 175px;
+    border-radius: 5px;
+}
+
+.card > * {
+    padding-top: 10px;
+}
+.card img{
+    width: 100%;
+    object-fit: contain;
 }
