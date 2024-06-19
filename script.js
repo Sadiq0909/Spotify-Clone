@@ -1,34 +1,25 @@
-    <div>
-      <a href="https://www.spotify.com/in-en/legal/">
-        <span>Legal</span>
-      </a>
-    </div>
-    <div>
-      <a href="https://www.spotify.com/in-en/safetyandprivacy/">
-        <span>Safety &amp; Privacy Center</span>
-      </a>
-    </div>
-    <div>
-      <a href="https://www.spotify.com/in-en/legal/privacy-policy/">
-        <span>Privacy Policy</span>
-      </a>
-    </div>
-    <div>
-      <a href="https://www.spotify.com/in-en/legal/cookies-policy/">
-        <span>Cookies</span>
-      </a>
-    </div>
-    <div>
-      <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">
-        <span>About Ads</span>
-      </a>
-    </div>
-    <div>
-      <a href="https://www.spotify.com/in-en/accessibility/">
-        <span>Accessibility</span>
-      </a>
-    </div>
-    <a href="https://www.spotify.com/legal/cookies-policy/" target="_blank" rel="noopener">
-        <span>Cookies</span>
-    </a>
+async function getsongs(){
+  let a = await fetch("http://127.0.0.1:5500/songs/")
+  let response = await a.text();
+  let div = document.createElement("div");
+  div.innerHTML = response
+  let as = div.getElementsByTagName("a")
+  let songs = []
+  for (let index = 0; index < as.length; index++) {
+    const element = as[index];
+    if(element.href.endsWith(".mp3")){
+      songs.push(element.href)
+    }
+  }
+  return songs
+}
 
+async function main(){
+  let songs = await getsongs()
+  console.log(songs)
+
+  var audio = new Audio(songs[0]);
+  audio.autoplay = true
+  audio.play()
+}
+main()

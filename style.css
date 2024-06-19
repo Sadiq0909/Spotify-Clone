@@ -45,6 +45,7 @@ body {
 .right {
     width: 75vw;
     margin: 10px 0px;
+    position: relative;
 }
 .header{
     display: flex;
@@ -92,7 +93,6 @@ body {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-    /* margin: 20px; */
     max-height: 60vh;
     overflow: scroll;
     overflow-x: hidden;
@@ -118,4 +118,16 @@ body {
     right: 15px;
     opacity: 0;
     transition: all 1s ease-in-out;
+}
+.playbar{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #1ed760;
+    padding: 7px;
+}
+.songbuttons{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
 }
