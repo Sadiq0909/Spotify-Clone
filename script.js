@@ -8,7 +8,7 @@ async function getsongs(){
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
     if(element.href.endsWith(".mp3")){
-      songs.push(element.href)
+      songs.push(element.href.split("/songs/")[1])
     }
   }
   return songs
@@ -18,8 +18,19 @@ async function main(){
   let songs = await getsongs()
   console.log(songs)
 
-  var audio = new Audio(songs[0]);
-  audio.autoplay = true
-  audio.play()
+  let songul = document.querySelector(".songlist").getElementsByTagName("ul")[0];
+  for (const song of songs) {
+  songul.innerHTML = songul.innerHTML + `<li>
+                            <img src="svgs/music.svg" alt="">
+                            <div class="info">
+                                <div>${song.replaceAll("%20"," ").replaceAll("(PagalWorld.com.sb)","")}</div>
+                                <div>Song artist</div>
+                            </div>
+                            <div class="playnow">
+                                <span>Play Now</span>
+                                <img src = "svgs/play.svg" alt="">
+                            </div>
+                        </li>`   
+  }
 }
 main()
