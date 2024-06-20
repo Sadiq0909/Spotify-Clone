@@ -1,3 +1,6 @@
+let currentSong = new Audio();
+
+
 async function getsongs(){
   let a = await fetch("http://127.0.0.1:5500/songs/")
   let response = await a.text();
@@ -13,10 +16,15 @@ async function getsongs(){
   }
   return songs
 }
-
+const playMusic = (track)=>{
+  currentSong.src = "/songs/"+track
+  currentSong.play()
+  play.src = "/svgs/pause.svg"
+  document.querySelector(".songinfo").innerHTML = track
+  document.querySelector(".songtime").innerHTML = "00:00/00:00"
+}
 async function main(){
-  let songs = await getsongs()
-  console.log(songs)
+  let songs = await getsongs();
 
   let songul = document.querySelector(".songlist").getElementsByTagName("ul")[0];
   for (const song of songs) {
@@ -32,5 +40,25 @@ async function main(){
                             </div>
                         </li>`   
   }
+  Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e=>{
+    e.addEventListener("click",element=>{
+      console.log(e.getElementsByTagName("div")[0].getElementsByTagName("div")[0].innerHTML);
+      playMusic(e.getElementsByTagName("div")[0].getElementsByTagName("div")[0].innerHTML);
+    })
+  })
+
+  play.addEventListener("click",()=>{
+    if(currentSong.paused){
+      currentSong.play();
+      play.src = "/svgs/pause.svg"
+    }else{
+      currentSong.pause();
+      play.src = "/svgs/play.svg"
+    }
+  })
+
+
+
+
 }
 main()

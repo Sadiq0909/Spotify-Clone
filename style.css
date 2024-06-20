@@ -148,11 +148,15 @@ body {
     position: relative;
     bottom: 4px;
     left: 0%;
+    transition: left 0.5s;
 }
 .songbuttons{
     display: flex;
     justify-content: center;
     gap: 7px;
+}
+.songbuttons img{
+    cursor: pointer;
 }
 .songlist{
     height: 325px;
@@ -186,4 +190,11 @@ body {
     font-size: 10px;
     width: 45px;
     padding: 10px;
+}
+.abovebar{
+    display: flex;
+    justify-content: space-between;
+}
+.songinfo , .songtime{
+    padding: 0px 15px;
 }
