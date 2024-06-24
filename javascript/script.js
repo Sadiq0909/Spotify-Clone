@@ -85,7 +85,7 @@ async function displayalbums() {
                         <div class="play">
                             <img src="svgs/playlogo.svg" alt="">
                             </div>
-                        <img src="/songs/${folder}/cover.jpeg" alt="">
+                        <img class = "imglogo" src="/songs/${folder}/cover1.jpeg" alt="">
                         <h3>${response.title}</h3>
                         <p>${response.description}</p>
                         </div>`
@@ -100,7 +100,7 @@ async function displayalbums() {
 }
 
 async function main() {
-  await getsongs("songs/ncs");
+  await getsongs("songs/Arijit");
   playMusic(songs[0], true)
 
   displayalbums()
