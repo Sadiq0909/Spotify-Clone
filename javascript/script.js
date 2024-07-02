@@ -37,7 +37,7 @@ async function getsongs(folder) {
     songul.innerHTML = songul.innerHTML + `<li>
                             <img src="svgs/music.svg" alt="">
                             <div class="info">
-                                <div>${song.replaceAll("%20", " ").replaceAll("(PagalWorld.com.sb)", "")}</div>
+                                <div>${song.replaceAll("%20", " ")}</div>
                                 <div>Song artist</div>
                             </div>
                             <div class="playnow">
@@ -150,3 +150,6 @@ async function main() {
 
 
 main()
+
+
+// http://127.0.0.1:5500/songs/Punjabi/One%20Love_64(PagalWorld.com.sb).mp3
